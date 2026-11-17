@@ -24,11 +24,11 @@ and missing libavdevice/libavfilter/libpostproc libraries were unpacked under
 project-local `.ffmpeg`, without replacing system packages. The tested launcher
 uses `/home/seeed/rockchip-yolo11-quant-benchmark/.venv/bin/python`.
 
-The server is deployed at `/home/seeed/rk3576-formula-student-cone-detection`.
+The server is deployed at `/home/seeed/rk3576-cone-detection`.
 Port 8090 was already occupied, so this deployment uses **8096**.
 
 ```bash
-cd ~/rk3576-formula-student-cone-detection
+cd ~/rk3576-cone-detection
 PORT=8096 PYTHON=/home/seeed/rockchip-yolo11-quant-benchmark/.venv/bin/python \
   bash scripts/run.sh
 ```

@@ -13,7 +13,7 @@ ROOT=Path(__file__).resolve().parent
 DATA=Path(os.environ.get('CONE_DATA',ROOT/'data')).resolve();DATA.mkdir(parents=True,exist_ok=True)
 MODEL=os.environ.get('CONE_MODEL',str(ROOT/'models/cone_yolox_rk3576_fp16.rknn'))
 BACKEND=os.environ.get('CONE_BACKEND','rknn')
-app=FastAPI(title='Formula Student Cone Detection')
+app=FastAPI(title='RK3576 Cone Detection')
 pool=ThreadPoolExecutor(max_workers=1)
 lock=Lock();jobs={};active=False
 

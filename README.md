@@ -1,4 +1,4 @@
-# Formula Student Cone Detection on reComputer RK3576
+# Cone Detection on reComputer RK3576
 
 Four-class cone detection using the **original MathWorks pretrained YOLOX-tiny
 weights**, converted to RKNN without training. FastAPI provides an English video
@@ -10,7 +10,7 @@ The official test footage is credited upstream to DIAN Racing, Tongji University
 ## Repository and deployment assets
 
 ```text
-rk3576-formula-student-cone-detection/
+rk3576-cone-detection/
   github/                 # This clean source tree; suitable for GitHub
     app.py                # FastAPI upload, job status, preview and download API
     cones/                # Actual RKNNLite/ONNX inference, decoding and video jobs
