@@ -16,15 +16,20 @@ rk3576-cone-detection/
     cones/                # Actual RKNNLite/ONNX inference, decoding and video jobs
     web/index.html        # English responsive UI; no frontend build required
     tools/                # Original asset download, MAT extraction, RKNN conversion
+    models/               # Verified final RK3576 FP16 RKNN and provenance JSON
     scripts/run.sh        # Board server launcher
     tests/                # Geometry, class order and NMS regression checks
   rk-workspace/           # Local-only models, upstream archive, evidence and bundles
 ```
 
-Model binaries, source videos, Python environments, caches, uploaded files,
-intermediate ONNX/MAT files and generated videos are excluded from the source
-repository. `tools/package_deploy.py` builds a separate board bundle containing
-source and the compiled RKNN. No GitHub repository is created or published by these tools.
+The verified final deployment model is included as
+[`models/cone_yolox_rk3576_fp16.rknn`](models/cone_yolox_rk3576_fp16.rknn)
+(13,968,384 bytes), with its target, precision, Toolkit version and SHA-256 in
+the adjacent JSON manifest. This is the model used in the actual board validation.
+Original MAT weights, intermediate ONNX files, source videos, Python environments,
+caches, uploaded files and generated videos remain excluded from GitHub.
+`tools/package_deploy.py` builds a separate board bundle containing source and the
+compiled RKNN. No GitHub repository is created or published by these tools.
 
 ## Classes and counts
 
@@ -104,7 +109,7 @@ python -m pip install /path/to/rknn_toolkit_lite2-2.3.2-cp311-cp311-linux_aarch6
 sudo apt-get install ffmpeg
 
 mkdir -p models
-# Copy the compiled cone_yolox_rk3576_fp16.rknn into models/.
+# The verified cone_yolox_rk3576_fp16.rknn is already included in models/.
 bash tools/inspect_board.sh
 bash scripts/run.sh
 ```

@@ -6,7 +6,7 @@ __pycache__/
 .ffmpeg/
 .env
 assets/
-models/
+models/*
 data/
 outputs/
 validation/
@@ -27,3 +27,7 @@ dist/
 *.pth
 *.onnx.data
 *.deb
+
+# Ship only the verified final deployment model and its provenance manifest.
+!models/cone_yolox_rk3576_fp16.rknn
+!models/cone_yolox_rk3576_fp16.json

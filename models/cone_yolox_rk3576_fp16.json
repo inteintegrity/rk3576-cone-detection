@@ -1,0 +1,7 @@
+{
+  "target": "rk3576",
+  "toolkit": "2.3.2",
+  "precision": "fp16",
+  "onnx_sha256": "8db8ea5c9e3784a9a4cec5e0b61caf3ce3cce723de0418c4b5c43e1481cbe0f9",
+  "rknn_sha256": "13a8465636da332d227afbe1c403eb01ec2203346c9bbd44252c08cd77953357"
+}

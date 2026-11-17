@@ -110,6 +110,6 @@ parity remains untested. No claim of identical MATLAB detector behavior is made.
   9.13 s for ONNX-to-RKNN (including interpreter/WSL startup). Downloads and
   validation are excluded. Compiler-internal time was not measured separately.
 
-Raw models, recordings, MP4s, full logs and frame traces are deliberately kept in
-`rk-workspace`, outside the GitHub source directory. Only this concise validation
-record belongs in the source tree.
+Original/intermediate models, recordings, MP4s, full logs and frame traces are
+kept in `rk-workspace`, outside GitHub. The verified final FP16 RKNN and its
+provenance manifest are included under `models/` alongside this validation record.
