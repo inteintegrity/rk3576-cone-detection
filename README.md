@@ -17,6 +17,7 @@ rk3576-cone-detection/
     web/index.html        # English responsive UI; no frontend build required
     tools/                # Original asset download, MAT extraction, RKNN conversion
     models/               # Verified final RK3576 FP16 RKNN and provenance JSON
+    wheels/               # Official Lite2 2.3.2 runtime wheel for Python 3.11 ARM64
     scripts/run.sh        # Board server launcher
     tests/                # Geometry, class order and NMS regression checks
   rk-workspace/           # Local-only models, upstream archive, evidence and bundles
@@ -96,16 +97,18 @@ installed on this workstation. That limitation is separate from ONNX versus
 
 ## Install and run on RK3576
 
-Use Debian/Ubuntu ARM64 with a functioning RKNPU driver, `librknnrt.so`, and the
-official matching **RKNN Toolkit Lite2** wheel. Toolkit2 is a conversion tool;
-Lite2 is the board runtime. See [Rockchip Toolkit2](https://github.com/airockchip/rknn-toolkit2).
+Use Debian/Ubuntu ARM64 with a functioning RKNPU driver and `librknnrt.so`.
+The official **RKNN Toolkit Lite2 2.3.2 wheel for Python 3.11 ARM64** is included
+under `wheels/`, with checksums and the upstream copyright notice. Toolkit2 is
+a conversion tool; Lite2 is the board runtime. Other Python versions need their
+matching official wheel. See [bundled runtime details](wheels/README.md).
 
 ```bash
-python3 -m venv --system-site-packages .venv
+python3.11 -m venv --system-site-packages .venv
 source .venv/bin/activate
-python -m pip install -r requirements.txt
-# Install the official aarch64 Lite2 2.3.2 wheel matching your Python version.
-python -m pip install /path/to/rknn_toolkit_lite2-2.3.2-cp311-cp311-linux_aarch64.whl
+python -m pip install -r requirements.txt "numpy==1.26.4"
+(cd wheels && sha256sum -c SHA256SUMS)
+python -m pip install wheels/rknn_toolkit_lite2-2.3.2-cp311-*.whl
 sudo apt-get install ffmpeg
 
 mkdir -p models
